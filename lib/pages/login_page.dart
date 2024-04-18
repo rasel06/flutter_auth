@@ -3,6 +3,7 @@ import 'package:flutter_auth/controllers/login_controller.dart';
 import 'package:flutter_auth/widgets/input_box.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
   LoginController controller = Get.put(LoginController());
 
@@ -38,14 +39,15 @@ class LoginPage extends StatelessWidget {
                 inputBox(
                   hint: "Password",
                   textController: controller.password,
+                  isSecured: true,
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
                   width: Get.width / 2,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {
-                      print('${controller.username.text}');
+                    onPressed: () async {
+                      await controller.submit();
                     },
                     child: const Text("Presss to Login"),
                   ),

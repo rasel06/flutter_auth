@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Widget inputBox({
   required String hint,
   required TextEditingController textController,
+  bool isSecured = false,
 }) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -12,6 +13,7 @@ Widget inputBox({
           color: Colors.grey,
         )),
     child: TextField(
+      obscureText: isSecured,
       controller: textController,
       decoration: InputDecoration(
         border: InputBorder.none,
